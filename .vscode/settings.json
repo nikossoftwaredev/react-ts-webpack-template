@@ -1,0 +1,41 @@
+{
+    "typescript.tsdk": "./node_modules/typescript/lib",
+    "editor.detectIndentation": false,
+    "eslint.validate": [
+        "typescript",
+        "typescriptreact",
+        "javascript"
+    ],
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "editor.tabCompletion": "on",
+    "[json]": {
+        "editor.tabSize": 2
+    },
+    "[javascript]": {
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.tabSize": 2
+    },
+    "[typescriptreact]": {
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.trimAutoWhitespace": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.useTabStops": true,
+    "editor.wrappingIndent": "indent",
+    "git.inputValidation": "warn",
+    "git.inputValidationLength": 70,
+    "git.inputValidationSubjectLength": 50,
+    "editor.formatOnPaste": false,
+    "editor.bracketPairColorization.enabled": true,
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    }
+}

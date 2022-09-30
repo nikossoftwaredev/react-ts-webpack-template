@@ -1,0 +1,51 @@
+{
+    "compilerOptions": {
+        "noImplicitReturns": true,
+        "target": "es6",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "allowJs": true,
+        "baseUrl": "src",
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "strictNullChecks": true,
+        "skipLibCheck": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "jsx": "react",
+        "noUnusedLocals": false,
+        "noUnusedParameters": false,
+        "preserveConstEnums": true,
+        "removeComments": false,
+        "sourceMap": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "lib": [
+            "dom",
+            "es2015",
+            "es2016",
+            "es2017",
+            "esnext"
+        ],
+        "strictPropertyInitialization": false,
+        "outDir": "./build/",
+        "typeRoots": [
+            "./types",
+            "./node_modules/@types"
+        ]
+    },
+    "exclude": [
+        "node_modules"
+    ],
+    "include": [
+        "react-app-env.d.ts",
+        "src",
+        "webpack.config.js",
+    ]
+}
