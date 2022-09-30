@@ -1,5 +1,10 @@
-import React from 'react';
+import Counter from './components/Counter';
 
-const App = () => <h1>Hello React</h1>;
+const App = () => (
+  <h1>
+    Hello React
+    <Counter />
+  </h1>
+);
 
 export default App;

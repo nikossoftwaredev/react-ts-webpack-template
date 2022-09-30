@@ -1,4 +1,5 @@
-const path = require("path");
+/* eslint-disable @typescript-eslint/no-var-requires */
+const path = require('path');
 
 module.exports = (env, argv) => {
   const devServer = {
@@ -6,26 +7,26 @@ module.exports = (env, argv) => {
     historyApiFallback: true,
     port: 3000,
     liveReload: true,
-    watchFiles: ["src/**/*"],
+    watchFiles: ['src/**/*'],
     client: {
       progress: true,
       overlay: {
         errors: true,
-        warnings: false,
-      },
+        warnings: false
+      }
     },
     static: {
-      directory: path.join(__dirname, "public"),
-    },
+      directory: path.join(__dirname, 'public')
+    }
   };
 
   const config = {
     context: __dirname, // to automatically find tsconfig.json
-    entry: "./src/index.tsx",
+    entry: './src/index.tsx',
     output: {
-      path: path.resolve(__dirname, "build"),
-      filename: "index.js",
-      publicPath: "/",
+      path: path.resolve(__dirname, 'build'),
+      filename: 'index.js',
+      publicPath: '/'
     },
     devServer,
     module: {
@@ -33,22 +34,22 @@ module.exports = (env, argv) => {
         {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
-          include: path.resolve(__dirname, "src"),
+          include: path.resolve(__dirname, 'src'),
           use: {
-            loader: "babel-loader",
-          },
+            loader: 'babel-loader'
+          }
         },
         {
           test: /.tsx?$/,
           exclude: /node_modules/,
-          include: path.resolve(__dirname, "src"),
-          use: [{ loader: "ts-loader", options: { transpileOnly: true } }],
-        },
-      ],
+          include: path.resolve(__dirname, 'src'),
+          use: [{ loader: 'ts-loader', options: { transpileOnly: true } }]
+        }
+      ]
     },
     resolve: {
-      extensions: [".tsx", ".ts", ".js", ".jsx", ".css", ".json"],
-    },
+      extensions: ['.tsx', '.ts', '.js', '.jsx', '.css', '.json']
+    }
   };
 
   return config;
