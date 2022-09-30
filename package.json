@@ -4,8 +4,9 @@
   "main": "index.tsx",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack serve --mode development",
-    "build": "webpack --mode production --progress --hide-modules"
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production --progress --hide-modules",
+    "clear_install": "rm -rf node_modules/ yarn.lock && yarn install"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
