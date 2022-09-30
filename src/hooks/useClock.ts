@@ -16,7 +16,7 @@ const useClock = (): { date: string; time: string } => {
     return () => {
       clearInterval(intervalId.current);
     };
-  });
+  }, []);
 
   return { date, time };
 };

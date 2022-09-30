@@ -9,7 +9,9 @@
     "clear-install": "rm -rf node_modules/ yarn.lock && yarn install"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@reduxjs/toolkit": "^1.8.5",
+    "antd": "^4.23.3",
     "lodash": "^4.17.21",
     "luxon": "^3.0.4",
     "react": "^18.2.0",

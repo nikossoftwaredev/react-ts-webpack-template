@@ -1,3 +1,4 @@
+import { Button } from 'antd';
 import useUiResource from 'hooks/useUiResource';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
@@ -16,13 +17,9 @@ const ReduxCounter = () => {
 
   return (
     <div>
-      <button type='button' onClick={changeCounter(-1)}>
-        -
-      </button>
+      <Button onClick={changeCounter(-1)}>-</Button>
       <span style={{ color: 'blue' }}>{counter}</span>
-      <button type='button' onClick={changeCounter(1)}>
-        +
-      </button>
+      <Button onClick={changeCounter(1)}>+</Button>
     </div>
   );
 };
