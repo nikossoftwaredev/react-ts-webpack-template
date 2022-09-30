@@ -5,11 +5,12 @@
         "node": true
     },
     "plugins": [
-        "@typescript-eslint",
-        "prettier",
-        "react-hooks",
-        "import",
-        "json-format"
+        "eslint-plugin-import",
+        "eslint-plugin-jsx-a11y",
+        "eslint-plugin-prettier",
+        "eslint-plugin-react",
+        "eslint-plugin-react-hooks",
+        "@typescript-eslint"
     ],
     "extends": [
         "eslint:recommended",
@@ -17,8 +18,7 @@
         "airbnb-typescript",
         "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended",
-        "prettier/react",
-        "prettier/@typescript-eslint",
+        "prettier",
         "plugin:prettier/recommended"
     ],
     "parser": "@typescript-eslint/parser",
