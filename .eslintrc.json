@@ -60,7 +60,7 @@
                 "ts": "never",
                 "tsx": "never",
                 "css": "never",
-                "scss": "never"
+                "scss": "always"
             }
         ],
         "react/jsx-filename-extension": [

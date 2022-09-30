@@ -1,10 +1,5 @@
-import Counter from './components/Counter';
+import HomePage from 'pages/HomePage';
 
-const App = () => (
-  <h1>
-    Hello React
-    <Counter />
-  </h1>
-);
+const App = () => <HomePage />;
 
 export default App;
