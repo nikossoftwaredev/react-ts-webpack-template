@@ -11,16 +11,20 @@ It uses a custom webpack and babel config.
 
 - `node 14.17.0`
 - `yarn 1.22.18`
+- `react 18.2.0`
 
 ## Windows nvm
-Download nvm from [https://github.com/coreybutler/nvm-windows/releases/download/1.1.9/nvm-setup.zip] nvm
+Download: [nvm setup](https://github.com/coreybutler/nvm-windows/releases/download/1.1.9/nvm-setup.zip)
 
 ## Linux nvm
+
+Run:
 ```sh
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 ```
 
 
+To use it run a terminal with admin rights:
 ```js static
 nvm install 14.17.0
 ```
@@ -28,7 +32,7 @@ nvm install 14.17.0
 nvm use 14.17.0
 ```
 
-## Info
+## Set up the project
 The project uses yarn
 
 ```js static
@@ -40,9 +44,12 @@ npm install yarn --global
 yarn install
 ```
 
-## To start the project run```js static
+## To start the project run
+```js static
 yarn start
 ```
+Runs the app in the development mode.
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 
 ## Must have VS code extensions
@@ -53,22 +60,26 @@ yarn start
 ## Available Scripts
 
 In the project directory, you can run:
-
-### `yarn start`
-Runs the app in the development mode.
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-### `yarn build`
+```js static
+yarn build
+```
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-### `yarn run clear-install`
+```js static
+yarn run clear-install
+```
 Resets the project state by deleting yarn.lock and node_modules and installing
 them again.
 
-If it cannot find python do
-### `npm install -g windows-build-tools`
 
-### `yarn run check-cycle`
+```js static
+npm install -g windows-build-tools
+```
+Fixes python issue
+
+```js static
+yarn run check-cycle
+```
 
 Checks the project for any circular dependecies
