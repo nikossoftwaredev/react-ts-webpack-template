@@ -1,8 +1,8 @@
 import isEqual from 'lodash/isEqual';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUiResource, setUIProperty } from 'redux/slices/uiSlice';
-import type { AppState } from 'redux/store';
+import { getUiResource, setUIProperty } from '@app/redux/slices/uiSlice';
+import { AppState } from '@app/redux/store';
 
 const useUiResource = (path: string, initData?: any): any => {
   const dispatch = useDispatch();

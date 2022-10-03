@@ -1,4 +1,4 @@
-import Clock from 'components/Clock';
+import Clock from '@app/components/Clock';
 
 const HomePage = (): JSX.Element => {
   return (

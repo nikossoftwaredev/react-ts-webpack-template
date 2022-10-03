@@ -1,7 +1,7 @@
+import { ResetUIDataPayload, SetUIDataAction, SliceState } from '@app/types/redux';
 import { createSlice, Dispatch, current } from '@reduxjs/toolkit';
 import get from 'lodash/get';
 import setWith from 'lodash/setWith';
-import { ResetUIDataPayload, SetUIDataAction, SliceState } from 'types/redux';
 
 const initialState: SliceState = {};
 

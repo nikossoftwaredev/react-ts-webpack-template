@@ -10,7 +10,7 @@ module.exports = (env, argv) => {
     open: true,
     historyApiFallback: true,
     port: 3000,
-    liveReload: true,
+    hot: true,
     watchFiles: ['src/**/*'],
     client: {
       progress: true,
@@ -25,11 +25,12 @@ module.exports = (env, argv) => {
   };
 
   const config = {
-    context: __dirname, // to automatically find tsconfig.json
+    context: __dirname,
     entry: './src/index.tsx',
     output: {
       path: path.resolve(__dirname, 'build'),
       filename: 'index.js',
+      sourceMapFilename: '[name].js.map',
       publicPath: '/'
     },
     devServer,
@@ -50,20 +51,11 @@ module.exports = (env, argv) => {
           use: [{ loader: 'ts-loader', options: { transpileOnly: true } }]
         },
         {
-          test: /\.css$/,
+          test: /\.css$/i,
           use: [
-            isDev && require.resolve('style-loader'),
-            isProd && {
-              loader: MiniCssExtractPlugin.loader,
-              // css is located in `static/css`, use '../../' to locate index.html folder
-              // in production `paths.publicUrlOrPath` can be a relative path
-              options: { publicPath: '../../' }
-            },
+            isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
             {
-              loader: require.resolve('css-loader'),
-              options: {
-                url: false
-              }
+              loader: require.resolve('css-loader')
             }
           ].filter(Boolean),
           sideEffects: true
@@ -81,12 +73,8 @@ module.exports = (env, argv) => {
     },
     resolve: {
       extensions: ['.tsx', '.ts', '.js', '.jsx', '.css', '.json'],
-      modules: [path.resolve(__dirname, './src'), 'node_modules'],
       alias: {
-        components: path.resolve(__dirname, './src/components'),
-        hooks: path.resolve(__dirname, './src/hooks'),
-        pages: path.resolve(__dirname, './src/pages'),
-        styles: path.resolve(__dirname, './src/styles')
+        '@': path.resolve(__dirname, './src')
       }
     }
   };

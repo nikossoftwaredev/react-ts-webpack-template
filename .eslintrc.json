@@ -10,6 +10,7 @@
         "eslint-plugin-prettier",
         "eslint-plugin-react",
         "eslint-plugin-react-hooks",
+        "eslint-plugin-no-relative-import-paths",
         "@typescript-eslint"
     ],
     "extends": [
@@ -85,6 +86,12 @@
         "react/prop-types": "off", // Since we do not use prop-types
         "react/require-default-props": "off", // Since we do not use prop-types,
         "react/jsx-props-no-spreading": "off",
+        "no-relative-import-paths/no-relative-import-paths": [
+            "warn",
+            {
+                "allowSameFolder": true
+            }
+        ],
         "react/function-component-definition": [
             2,
             {

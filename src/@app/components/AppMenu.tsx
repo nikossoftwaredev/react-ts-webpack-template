@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { MenuProps, Menu } from 'antd';
-import { menuItems } from 'routes/menu-config';
+import { menuItems } from '@app/routes/menu-config';
 
 const AppMenu: React.FC = () => {
   const [current, setCurrent] = useState('home');

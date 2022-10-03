@@ -1,8 +1,8 @@
+import useUiResource from '@app/hooks/useUiResource';
+import { setUIProperty } from '@app/redux/slices/uiSlice';
 import { Button } from 'antd';
-import useUiResource from 'hooks/useUiResource';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import { setUIProperty } from 'redux/slices/uiSlice';
 
 const ReduxCounter = () => {
   const dispatch = useDispatch();

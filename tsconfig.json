@@ -44,7 +44,6 @@
         "node_modules"
     ],
     "include": [
-        "react-app-env.d.ts",
         "src",
         "webpack.config.js",
     ]

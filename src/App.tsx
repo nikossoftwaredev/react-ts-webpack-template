@@ -1,7 +1,7 @@
+import { store } from '@app/redux/store';
+import routesConfig from '@app/routes/routes-config';
 import { Provider } from 'react-redux';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { store } from 'redux/store';
-import routesConfig from 'routes/routes-config';
 
 const router = createBrowserRouter(routesConfig);
 

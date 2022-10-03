@@ -1,7 +1,7 @@
 import { Navigate } from 'react-router-dom';
 import { MailOutlined } from '@ant-design/icons';
 import { MenuProps } from 'antd';
-import ReduxCounter from 'components/ReduxCounter';
+import ReduxCounter from '@app/components/ReduxCounter';
 
 export const menuItems: MenuProps['items'] = [
   {
