@@ -1,9 +1,12 @@
+import { Configuration } from 'webpack-dev-server';
+
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (env, argv) => {
   const isDev = argv.mode === 'development';
+  y;
   const isProd = argv.mode === 'production';
 
   const devServer = {
@@ -24,7 +27,7 @@ module.exports = (env, argv) => {
     }
   };
 
-  const config = {
+  const config: Configuration = {
     context: __dirname,
     entry: './src/index.tsx',
     output: {
@@ -45,7 +48,7 @@ module.exports = (env, argv) => {
           }
         },
         {
-          test: /.tsx?$/,
+          test: /.(ts|tsx)?$/,
           exclude: /node_modules/,
           include: path.resolve(__dirname, 'src'),
           use: [{ loader: 'ts-loader', options: { transpileOnly: true } }]
@@ -73,8 +76,12 @@ module.exports = (env, argv) => {
     },
     resolve: {
       extensions: ['.tsx', '.ts', '.js', '.jsx', '.css', '.json'],
+      modules: [path.resolve(__dirname, './src'), 'node_modules'],
       alias: {
-        '@': path.resolve(__dirname, './src')
+        components: path.resolve(__dirname, './src/components'),
+        hooks: path.resolve(__dirname, './src/hooks'),
+        pages: path.resolve(__dirname, './src/pages'),
+        styles: path.resolve(__dirname, './src/styles')
       }
     }
   };

@@ -1,6 +1,6 @@
-import AppMenu from '@app/components/AppMenu';
-import ReduxCounter from '@app/components/ReduxCounter';
-import HomePage from '@app/pages/HomePage';
+import AppMenu from 'components/AppMenu';
+import ReduxCounter from 'components/ReduxCounter';
+import HomePage from 'pages/HomePage';
 import { Navigate, RouteObject } from 'react-router-dom';
 
 const routesConfig: RouteObject[] = [

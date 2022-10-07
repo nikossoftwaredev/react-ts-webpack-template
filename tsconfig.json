@@ -45,6 +45,6 @@
     ],
     "include": [
         "src",
-        "webpack.config.js",
+        "webpack.config.ts",
     ]
 }
