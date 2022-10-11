@@ -1,12 +1,9 @@
-import { Configuration } from 'webpack-dev-server';
-
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (env, argv) => {
   const isDev = argv.mode === 'development';
-  y;
   const isProd = argv.mode === 'production';
 
   const devServer = {
@@ -27,7 +24,7 @@ module.exports = (env, argv) => {
     }
   };
 
-  const config: Configuration = {
+  const config = {
     context: __dirname,
     entry: './src/index.tsx',
     output: {
@@ -55,13 +52,10 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.css$/i,
-          use: [
-            isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-            {
-              loader: require.resolve('css-loader')
-            }
-          ].filter(Boolean),
-          sideEffects: true
+          loader: 'css-loader',
+          options: {
+            url: true
+          }
         },
         {
           test: /\.s[ac]ss$/i,
@@ -81,7 +75,9 @@ module.exports = (env, argv) => {
         components: path.resolve(__dirname, './src/components'),
         hooks: path.resolve(__dirname, './src/hooks'),
         pages: path.resolve(__dirname, './src/pages'),
-        styles: path.resolve(__dirname, './src/styles')
+        'redux-app': path.resolve(__dirname, './src/redux-app'),
+        types: path.resolve(__dirname, './src/types'),
+        utils: path.resolve(__dirname, './src/utils')
       }
     }
   };

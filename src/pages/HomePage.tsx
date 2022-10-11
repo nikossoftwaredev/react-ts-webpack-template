@@ -1,11 +1,7 @@
 import Clock from 'components/Clock';
 
 const HomePage = (): JSX.Element => {
-  return (
-    <div>
-      <Clock />
-    </div>
-  );
+  return <div>{false && <Clock />}</div>;
 };
 
 export default HomePage;

@@ -1,4 +1,4 @@
-import useClock from '@app/hooks/useClock';
+import useClock from 'hooks/useClock';
 import 'styles/clock.scss';
 
 const Clock = () => {
