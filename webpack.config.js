@@ -1,10 +1,12 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (env, argv) => {
-  const isDev = argv.mode === 'development';
   const isProd = argv.mode === 'production';
+  const isDev = !isProd;
 
   const devServer = {
     open: true,
@@ -30,10 +32,11 @@ module.exports = (env, argv) => {
     output: {
       path: path.resolve(__dirname, 'build'),
       filename: 'index.js',
-      sourceMapFilename: '[name].js.map',
-      publicPath: '/'
+      sourceMapFilename: '[name].[hash:8].map',
+      chunkFilename: '[id].[hash:8].js'
     },
-    devServer,
+    ...(isDev ? { devServer } : {}),
+    ...(isDev ? { devtool: 'cheap-module-source-map' } : {}),
     module: {
       rules: [
         {
@@ -68,6 +71,37 @@ module.exports = (env, argv) => {
         }
       ]
     },
+    plugins: [
+      new ForkTsCheckerWebpackPlugin({
+        async: isDev,
+        typescript: {
+          configFile: path.resolve(__dirname, 'tsconfig.json')
+        }
+      }),
+      new HtmlWebpackPlugin({
+        title: 'Caching',
+        inject: true,
+        template: `${__dirname}/public/index.html`,
+        filename: `${__dirname}/index.html`,
+        favicon: `${__dirname}/public/favicon.ico`,
+        ...(isProd
+          ? {
+              minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeRedundantAttributes: true,
+                useShortDoctype: true,
+                removeEmptyAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                keepClosingSlash: true,
+                minifyJS: true,
+                minifyCSS: true,
+                minifyURLs: true
+              }
+            }
+          : {})
+      })
+    ],
     resolve: {
       extensions: ['.tsx', '.ts', '.js', '.jsx', '.css', '.json'],
       modules: [path.resolve(__dirname, './src'), 'node_modules'],

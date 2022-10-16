@@ -1,8 +1,9 @@
-import { Button } from 'antd';
 import useUiResource from 'hooks/useUiResource';
+import { IconButton } from '@mui/material';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { setUIProperty } from 'redux-app/slices/uiSlice';
+import { Stack } from '@mui/system';
 
 const ReduxCounter = () => {
   const dispatch = useDispatch();
@@ -16,11 +17,11 @@ const ReduxCounter = () => {
   );
 
   return (
-    <div>
-      <Button onClick={changeCounter(-1)}>-</Button>
+    <Stack>
+      <IconButton onClick={changeCounter(-1)}>-</IconButton>
       <span style={{ color: 'blue' }}>{counter}</span>
-      <Button onClick={changeCounter(1)}>+</Button>
-    </div>
+      <IconButton onClick={changeCounter(1)}>+</IconButton>
+    </Stack>
   );
 };
 

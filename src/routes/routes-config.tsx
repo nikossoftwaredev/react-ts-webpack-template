@@ -1,13 +1,8 @@
-import AppMenu from 'components/AppMenu';
 import ReduxCounter from 'components/ReduxCounter';
 import HomePage from 'pages/HomePage';
 import { Navigate, RouteObject } from 'react-router-dom';
 
 const routesConfig: RouteObject[] = [
-  {
-    path: '/menu',
-    element: <AppMenu />
-  },
   {
     path: '/home',
     element: <HomePage />

@@ -1,1 +1,1 @@
-export const isNumber = (value: string | number): boolean => !Number.isNaN(Number(value));
+export const getFullName = (name: string, lastName: string): string => `${name} ${lastName}`;
