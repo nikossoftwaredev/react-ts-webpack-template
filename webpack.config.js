@@ -31,9 +31,7 @@ module.exports = (env, argv) => {
     entry: './src/index.tsx',
     output: {
       path: path.resolve(__dirname, 'build'),
-      filename: 'index.js',
-      sourceMapFilename: '[name].[hash:8].map',
-      chunkFilename: '[id].[hash:8].js'
+      filename: 'index.js'
     },
     ...(isDev ? { devServer } : {}),
     ...(isDev ? { devtool: 'cheap-module-source-map' } : {}),

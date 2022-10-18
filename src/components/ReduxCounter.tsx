@@ -4,6 +4,7 @@ import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { setUIProperty } from 'redux-app/slices/uiSlice';
 import { Stack } from '@mui/system';
+import { StyledButton } from './styled-components/StyledButton';
 
 const ReduxCounter = () => {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ const ReduxCounter = () => {
 
   return (
     <Stack>
-      <IconButton onClick={changeCounter(-1)}>-</IconButton>
+      <StyledButton onClick={changeCounter(-1)}>-</StyledButton>
       <span style={{ color: 'blue' }}>{counter}</span>
       <IconButton onClick={changeCounter(1)}>+</IconButton>
     </Stack>

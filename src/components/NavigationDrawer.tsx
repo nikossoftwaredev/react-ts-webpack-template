@@ -7,8 +7,8 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import { Link } from 'react-router-dom';
+import menuConfig from 'routes/menu-config';
 import AppHeader from './core/AppHeader';
 
 const drawerWidth = 240;
@@ -32,25 +32,21 @@ const NavigationDrawer = () => {
         <Toolbar />
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
+          {menuConfig.map((menu, idx) =>
+            menu.type === 'Divider' ? (
+              // eslint-disable-next-line react/no-array-index-key
+              <Divider key={`divider${idx}`} />
+            ) : (
+              <Link key={menu.to || ''} to={menu.to || ''}>
+                <ListItem key={menu.text} disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>{menu.icon}</ListItemIcon>
+                    <ListItemText primary={menu.text} />
+                  </ListItemButton>
+                </ListItem>
+              </Link>
+            )
+          )}
         </List>
       </Drawer>
       <Box component='main' sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}>

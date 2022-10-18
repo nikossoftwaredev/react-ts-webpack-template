@@ -1,15 +1,19 @@
+import App from 'App';
 import ReduxCounter from 'components/ReduxCounter';
 import HomePage from 'pages/HomePage';
 import { Navigate, RouteObject } from 'react-router-dom';
 
 const routesConfig: RouteObject[] = [
   {
-    path: '/home',
-    element: <HomePage />
-  },
-  {
-    path: '/counter',
-    element: <ReduxCounter />
+    path: '/',
+    element: <App />,
+    children: [
+      {
+        path: 'home',
+        element: <HomePage />
+      },
+      { path: 'counter', element: <ReduxCounter /> }
+    ]
   },
   {
     path: '*',
